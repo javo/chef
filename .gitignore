@@ -1,0 +1,8 @@
+/cookbooks/
+/tmp/librarian/
+/nodes/
+/environments/
+/data_bags/
+/.chef/
+/*.lock
+/*.swp
