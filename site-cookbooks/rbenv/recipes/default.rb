@@ -1,5 +1,7 @@
-package "git"
-package "libffi-dev"
+Chef::Log.info "packages: #{node['packages']}"
+node['packages'].each do |pkg|
+  package pkg
+end
 
 node.override["user"] = ["_default", "development"].include?(node.chef_environment) ? "vagrant" : "deploy"
 
