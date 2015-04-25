@@ -1,0 +1,13 @@
+{
+  "name": "devops",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": {},
+  "description": "DevOps custom role",
+  "run_list": [
+    "recipe[rbenv]",
+    "recipe[rbenv::bundler]"
+    ],
+  "env_run_lists": {},
+  "override_attributes": {}
+}
