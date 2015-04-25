@@ -4,8 +4,7 @@ apt_repository "php54" do
   components ["main"]
   key "E5267A6C"
   keyserver "keyserver.ubuntu.com"
-  acction :add
-  notifies :run, "execute[apt-get update]", :immediately
+  action :add
 end
 
 Chef::Log.info "packages: #{node['packages']}"
