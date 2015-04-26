@@ -6,7 +6,8 @@
   "description": "DevOps custom role",
   "run_list": [
     "recipe[rbenv]",
-    "recipe[rbenv::bundler]"
+    "recipe[rbenv::bundler]",
+    "recipe[packages::devops]"
     ],
   "env_run_lists": {},
   "override_attributes": {}
