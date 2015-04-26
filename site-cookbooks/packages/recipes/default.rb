@@ -10,3 +10,8 @@ Chef::Log.info "packages: #{node['packages']}"
 node['packages'].each do |pkg|
   package pkg
 end
+
+Chef::Log.info "packages: #{node['packages_web']}"
+node['packages_web'].each do |pkg|
+  package pkg
+end

@@ -1,6 +1,8 @@
 default['packages'] = [
   'git',
-  'zsh',
+  'zsh'
+]
+default['packages_web'] = [
   'nginx',
   'mysql-server',
   'phpmyadmin'
