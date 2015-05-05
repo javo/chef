@@ -7,3 +7,6 @@ default['packages_web'] = [
   'mysql-server',
   'phpmyadmin'
 ]
+default['java'] = [
+  'tomcat'
+]
