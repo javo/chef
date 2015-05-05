@@ -7,7 +7,8 @@
   "run_list": [
     "recipe[rbenv]",
     "recipe[rbenv::bundler]",
-    "recipe[packages::devops]"
+    "recipe[packages::devops]",
+    "recipe[golang::source]"
     ],
   "env_run_lists": {},
   "override_attributes": {}
