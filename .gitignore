@@ -1,6 +1,6 @@
 *.swp
 /cookbooks/
 /tmp/librarian/
-/.chef/
 /*.lock
 /*.swp
+.kitchen/logs
