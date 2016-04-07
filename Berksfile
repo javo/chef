@@ -2,4 +2,4 @@ source "https://supermarket.chef.io"
 
 cookbook 'apt'
 cookbook 'git'
-cookbook 'tomcat7'
+cookbook 'users', '~> 2.0.3'
