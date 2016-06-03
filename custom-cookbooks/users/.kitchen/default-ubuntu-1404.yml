@@ -1,6 +1,0 @@
----
-hostname: 127.0.0.1
-port: '2201'
-username: vagrant
-ssh_key: "/Users/boris/Code/chef/custom-cookbooks/users/.kitchen/kitchen-vagrant/kitchen-users-default-ubuntu-1404/.vagrant/machines/default/virtualbox/private_key"
-last_action: converge
