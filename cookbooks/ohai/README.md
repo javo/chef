@@ -10,12 +10,13 @@ Contains custom resources for adding Ohai hints and installing custom Ohai plugi
 
 - Debian/Ubuntu
 - RHEL/CentOS/Scientific/Amazon/Oracle
+- openSUSE / SUSE Enterprise Linux
 - FreeBSD
 - Windows
 
 ### Chef
 
-- Chef 12+
+- Chef 12.1+
 
 ### Cookbooks
 
@@ -71,8 +72,9 @@ Installs custom Ohai plugins.
 #### Resource Attributes
 
 - `plugin_name` - The name to give the plugin on the filesystem. Should be string, default is name of resource.
-- `path` - The path to your custom plugin directory. Defaults to a directory named 'ohai_plugins' in the Chef config dir.
+- `path` - The path to your custom plugin directory. Defaults to a directory named 'plugins' under the directory 'ohai' in the Chef config dir.
 - `source_file` - The source file for the plugin in your cookbook if not NAME.rb.
+- `cookbook` - The cookbook where the source file exists if not the cookbook where the ohai_plugin resource is running from.
 - `resource` - The resource type for the plugin file. Either `:cookbook_file` or `:template`. Defaults to `:cookbook_file`.
 - `variables` - Usable only if `resource` is `:template`. Defines the template's variables.
 - `compile_time` - Should the resource run at compile time. This defaults to `true`.

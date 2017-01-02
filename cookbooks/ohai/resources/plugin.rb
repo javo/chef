@@ -1,6 +1,7 @@
 property :plugin_name, kind_of: String, name_attribute: true
 property :path, kind_of: String
 property :source_file, kind_of: String
+property :cookbook, kind_of: String
 property :resource, [:cookbook_file, :template], default: :cookbook_file
 property :variables, kind_of: Hash
 property :compile_time, [true, false], default: true
@@ -44,7 +45,12 @@ path cannot be determined")
                         ::Ohai::Config.ohai['plugin_path'] # new format
                       end
 
-    ohai_plugin_dir.include?(desired_dir)
+    case node['platform']
+    when 'windows'
+      ohai_plugin_dir.map(&:downcase).include?(desired_dir.downcase)
+    else
+      ohai_plugin_dir.include?(desired_dir)
+    end
   end
 
   def add_to_plugin_path(path)
@@ -62,7 +68,9 @@ path cannot be determined")
     Chef::Log.warn("The Ohai plugin_path does not include #{desired_plugin_path}. \
 Ohai will reload on each chef-client run in order to add this directory to the \
 path unless you modify your client.rb configuration to add this directory to \
-plugin_path. See 'Ohai Settings' at https://docs.chef.io/config_rb_client.html")
+plugin_path. The plugin_path can be set via the chef-client::config recipe. \
+See 'Ohai Settings' at https://docs.chef.io/config_rb_client.html#ohai-settings \
+for more details.")
   end
 end
 
@@ -77,11 +85,13 @@ action :create do
 
   if new_resource.resource.eql?(:cookbook_file)
     cookbook_file ::File.join(desired_plugin_path, new_resource.plugin_name + '.rb') do
+      cookbook new_resource.cookbook
       source new_resource.source_file || "#{new_resource.plugin_name}.rb"
       notifies :reload, "ohai[#{new_resource.plugin_name}]", :immediately
     end
   elsif new_resource.resource.eql?(:template)
     template ::File.join(desired_plugin_path, new_resource.plugin_name + '.rb') do
+      cookbook new_resource.cookbook
       source new_resource.source_file || "#{new_resource.plugin_name}.rb"
       variables new_resource.variables
       notifies :reload, "ohai[#{new_resource.plugin_name}]", :immediately
@@ -106,7 +116,7 @@ end
 action :delete do
   file ::File.join(desired_plugin_path, new_resource.plugin_name) do
     action :delete
-    notifies :reload, ohai[reload ohai post plugin removal]
+    notifies :reload, 'ohai[reload ohai post plugin removal]'
   end
 
   ohai 'reload ohai post plugin removal' do

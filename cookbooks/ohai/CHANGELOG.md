@@ -2,6 +2,33 @@
 
 This file is used to list changes made in each version of the ohai cookbook.
 
+## 4.2.3 (2016-12-02)
+- Prevent chef_version metadata from failing runs in Opsworks
+- Better explain how to resolve the plugin_path issue
+- Add suse as a supported platform
+- Require at least compat_resource 12.14.7
+
+## 4.2.2 (2016-09-19)
+- Ignore case in plugin path check on Windows
+
+## 4.2.1 (2016-09-08)
+- Fix typo in compile warning text
+- Depend on the latest compat_resource (12.14)
+- Remove Chef 11 compat in the metadata
+- Require Chef 12.1 not 12.0
+- Define ohai_plugin matcher for Chefspec
+
+## v4.2.0 (2016-07-19)
+
+- Added the ability to specify the source cookbook for the cookbook_file or template used in the ohai_plugin resource.
+- Added chef_version to the metadata
+- Added testing on openSUSE and switched from Rubocop to Cookstyle
+
+## v4.1.1 (2016-06-16)
+
+- Fixed error in notifies reload for the delete action
+- Bump the compat_resource requirement from 12.9+ to 12.10+ to prevent random failures
+
 ## v4.1.0 (2016-05-26)
 
 - Added the ability to use templates and pass in variables with the plugin custom resource
