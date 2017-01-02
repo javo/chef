@@ -1,5 +1,5 @@
 default["users"]["add"] = [
-  "bar"
+  "boris"
 ]
 default["users"]["remove"] = [
   "foo",
