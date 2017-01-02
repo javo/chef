@@ -1,0 +1,9 @@
+{
+  "run_list": [
+    "recipe[git]",
+    "recipe[users]"
+  ],
+  "automatic": {
+    "ipaddress": "10.202.238.104"
+  }
+}
