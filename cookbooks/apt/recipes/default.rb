@@ -1,9 +1,9 @@
 #
-# Cookbook Name:: apt
+# Cookbook:: apt
 # Recipe:: default
 #
-# Copyright 2008-2016, Chef Software, Inc.
-# Copyright 2009, Bryan McLellan <btm@loftninjas.org>
+# Copyright:: 2008-2016, Chef Software, Inc.
+# Copyright:: 2009-2016, Bryan McLellan <btm@loftninjas.org>
 #
 # Licensed under the Apache License, Version 2.0 (the 'License');
 # you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ file '/var/lib/apt/periodic/update-success-stamp' do
 end
 
 # If compile_time_update run apt-get update at compile time
-if node['apt']['compile_time_update']
+if node['apt']['compile_time_update'] && apt_installed?
   apt_update('compile time').run_action(:periodic)
 end
 

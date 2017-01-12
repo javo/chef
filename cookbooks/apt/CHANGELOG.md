@@ -1,5 +1,29 @@
 # apt Cookbook CHANGELOG
 
+This file is used to list changes made in each version of the apt cookbook.
+
+## 5.0.1 (2016-12-22)
+- Avoid CHEF-3694 in apt_preferences resource
+- Cookstyle fixes
+
+## 5.0.0 (2016-10-14)
+
+- Remove search logic from the cacher client cookbook and rework attribute structure. See the attributes file and readme for new structure. Determining what servers to cache against is better handled in a wrapper cookbook where you can define the exact search syntax yourself
+- Corrected readme examples for the cacher client setup
+- Depend on the latest compat_resource
+- Define matchers for ChefSpec
+- Testing updates to better test the various recipes and providers in the cookbook on Travis
+
+## 4.0.2 (2016-08-13)
+
+- The cookbook requires Chef 12.1+ not 12.0\. Update docs
+- Test on Chef 12.1 to ensure compatibility
+- Restore compatibility with Chef < 12.4
+
+## 4.0.1 (2016-06-21)
+
+- Fix bug that prevented adding the cookbook to non Debian/Ubuntu nodes without chef run failures
+
 ## 4.0.0 (2016-06-02)
 
 This cookbook now requires Chef 12\. If you require Chef 11 compatibility you will need to pin to the 3.X cookbook version
