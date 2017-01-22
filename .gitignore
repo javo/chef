@@ -2,3 +2,5 @@
 /tmp/librarian/
 /*.lock
 .kitchen/logs
+cookbooks/apache/recipes/lineaetica.rb
+cookbooks/apache2/templates/default/sites/
