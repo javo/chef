@@ -1,6 +1,7 @@
 {
   "run_list": [
-    "recipe[devops]"
+    "recipe[devops]",
+    "recipe[apache2]"
   ],
   "automatic": {
     "ipaddress": "10.202.238.254"
