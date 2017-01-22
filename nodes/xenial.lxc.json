@@ -1,8 +1,8 @@
 {
   "run_list": [
-
+    "recipe[devops]"
   ],
   "automatic": {
-    "ipaddress": "xenial.lxc"
+    "ipaddress": "10.202.238.254"
   }
 }
